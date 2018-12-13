@@ -1,7 +1,7 @@
-import 'dart:async';
+//import 'dart:async';
 import 'dart:math';
 
-import 'package:async/async.dart';
+//import 'package:async/async.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
   static const int STATE_FREE = 0;
   static int state = STATE_FREE;
   static BigInt number = BigInt.from(-1);
-  static double progress = 0;
+  // static double progress = 0;
 
   String _result = "";
 
@@ -146,8 +146,7 @@ class _HomePageState extends State<HomePage> {
     }
 
     for (int i = 0; i < factors.length; i++) {
-      stringResult +=
-          factors[i].toString() + ((i + 1 == factors.length) ? "" : ", ");
+      stringResult += factors[i].toString() + ((i + 1 == factors.length) ? "" : ", ");
     }
 
     return stringResult;
@@ -155,15 +154,12 @@ class _HomePageState extends State<HomePage> {
 
   static BigInt newtonIteration(BigInt n, BigInt x0) {
     final BigInt x1 = (BigInt.from(n / x0) + x0) >> 1;
-    return x0 == x1 || x0 == (x1 - BigInt.from(1))
-        ? x0
-        : newtonIteration(n, x1);
+    return x0 == x1 || x0 == (x1 - BigInt.from(1)) ? x0 : newtonIteration(n, x1);
   }
 
   static BigInt sqrt(final BigInt number) {
     if (number < BigInt.from(0))
-      throw new Exception(
-          "We can only calculate the square root of positive numbers.");
+      throw new Exception("Can only calculate the square root of positive numbers.");
     return newtonIteration(number, BigInt.from(1));
   }
 
