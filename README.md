@@ -1,3 +1,3 @@
-# Prime Factorizer Flutter
+# Prime Factorizer
 
 A simple prime factorization application using Flutter.
